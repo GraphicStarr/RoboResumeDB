@@ -1,7 +1,14 @@
 package me.jerilynmensah.roboresumedatabase.repositories;
 
+import me.jerilynmensah.roboresumedatabase.models.EmployeeList;
 import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.data.repository.CrudRepository;
 
-public interface JobRepo extends CrudRepository <Job, Long>{
+import java.util.List;
+
+public interface JobRepo extends CrudRepository <EmployeeList, Long>{
+
+    List<EmployeeList> findEmployeeOneContaining(String s);
+
+
 }
