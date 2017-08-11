@@ -3,7 +3,7 @@ package me.jerilynmensah.roboresumedatabase.controllers;
 
 import me.jerilynmensah.roboresumedatabase.models.EmployeeList;
 import me.jerilynmensah.roboresumedatabase.models.SearchEmployee;
-import me.jerilynmensah.roboresumedatabase.repositories.JobRepo;
+import me.jerilynmensah.roboresumedatabase.repositories.EmploymentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,7 +17,7 @@ import java.util.List;
 public class MainController {
 
     @Autowired
-    JobRepo jobRepo;
+    EmploymentRepo employmentRepo;
     //This is the home page
 
     @GetMapping("/index")
@@ -31,11 +31,11 @@ public class MainController {
     public String showIndexPost(@Valid @ModelAttribute("jobEmployee") JobEmployee jobEmployee, BindingResult bindingResult, Model model){
 
         if(bindingResult.hasErrors());{
-        model.addAttribute("employeelist" new EmployeeList());
+        model.addAttribute("employeelist",new EmployeeList());
         return "index";
     }
         model.addAttribute("confirmmsg", true);
-        jobRepo.save(employeeList);
+        employmentRepo.save(employeeList);
 
         return "index";
     }
@@ -43,7 +43,7 @@ public class MainController {
 
     @GetMapping("/employeelist")
     public String showEmployeeList (Model model) {
-        Iterable<EmployeeList> EmployeeOne = jobRepo.findAll();
+        Iterable<EmployeeList> EmployeeOne = employmentRepo.findAll();
 
         model.addAttribute("employeeone", employeeOne);
 
@@ -75,7 +75,7 @@ public class MainController {
 
         // now search the db for dishes containing whatever the user just entered in the search form
         // we are using out custom query method we defined in our repository
-        List<EmployeeList> someGuy = jobRepo.findEmployeeOneContaining(searchGuy.getSearchEmployee());
+        List<EmployeeList> someGuy = employmentRepo.findEmployeeOneContaining(searchGuy.getSearchEmployee());
 
         // more test output to console
         System.out.println("List contains this many items: " + someGuy.size());

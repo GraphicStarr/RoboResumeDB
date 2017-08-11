@@ -10,23 +10,15 @@ import javax.validation.constraints.Size;
 @Entity
 public class Person {
     @NotNull
-    @Size(min=3,max=50)
+    @Size(min = 3, max = 50)
     private String firstName;
     @NotNull
-    @Size(min=3,max=50)
+    @Size(min = 3, max = 50)
     private String lastName;
     @NotNull
-    @Size(min=3,max=50)
+    @Size(min = 3, max = 50)
     private String email;
-    @NotNull
-    @Size(min=3,max=50)
-    private String education;
-    @NotNull
-    @Size(min=3,max=50)
-    private String experience;
-    @NotNull
-    @Size(min=3,max=50)
-    private String skill;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -65,27 +57,4 @@ public class Person {
         this.email = email;
     }
 
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public String getExperience() {
-        return experience;
-    }
-
-    public void setExperience(String experience) {
-        this.experience = experience;
-    }
-
-    public String getSkill() {
-        return skill;
-    }
-
-    public void setSkill(String skill) {
-        this.skill = skill;
-    }
 }
