@@ -34,13 +34,19 @@
 
     <!-- Table headers -->
     <table>
+
+        <table border="1" cellpadding="5">
         <tr>
-            <th>Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Email</th>
             <th>Education</th>
             <th>Work</th>
             <th>Skill</th>
         </tr>
+
+    <!-- Table of Person -->
+        <th:block th:each="person:${employeeOne}">
         <tr>
             <td><b><p th:text="#{firstName}">First name</p></b></td>
             <td><b><p th:text="#{lastName}">Last name</p></b></td>

@@ -21,20 +21,23 @@ public class MainController {
     //This is the home page
 
     @GetMapping("/index")
-    public String showIndex(Model model) {
+    public String showIndex(Model model)
+    {
         String myMessage = "Welcome to the Invoice App";
         model.addAttribute("message", myMessage);
         return "index";
     }
 
     @PostMapping("/index")
-    public String showIndexPost(@Valid @ModelAttribute("jobEmployee") JobEmployee jobEmployee, BindingResult bindingResult, Model model){
+    public String showIndexPost(@Valid @ModelAttribute("jobEmployee") JobEmployee jobEmployee, BindingResult bindingResult, Model model)
+    {
 
-        if(bindingResult.hasErrors());{
+        if(bindingResult.hasErrors());
+        {
         model.addAttribute("employeelist",new EmployeeList());
         return "index";
-    }
-        model.addAttribute("confirmmsg", true);
+        }
+        model.addAttribute("employeeconfirm", true);
         employmentRepo.save(employeeList);
 
         return "index";
@@ -42,9 +45,11 @@ public class MainController {
 
 
     @GetMapping("/employeelist")
-    public String showEmployeeList (Model model) {
+    public String showEmployeeList (Model model)
+    {
         Iterable<EmployeeList> EmployeeOne = employmentRepo.findAll();
 
+        Object employeeOne;
         model.addAttribute("employeeone", employeeOne);
 
         return "employeelist";
@@ -54,7 +59,7 @@ public class MainController {
     public String showEmployee(Model model)
     {
         model.addAttribute("employeeOne",  employeeOne());
-        return "employeeconform";
+        return "employeeconfirm";
     }
     @PostMapping
     public String showEmployee(@Valid @ModelAttribute("employeeOne") EmployeeOne employeeOne, BindingResult bindingResultresult)
@@ -86,8 +91,8 @@ public class MainController {
         }
 
         // add the new List to the model, so it can be displayed in searchList.html
-        // apparently you can add both an Iterable and a List to a model, how convenient!
-        model.addAttribute("searchBoxResultList", someGuy);
+
+        model.addAttribute("searchEntryResultList", someGuy);
 
         return "searchList";
     }

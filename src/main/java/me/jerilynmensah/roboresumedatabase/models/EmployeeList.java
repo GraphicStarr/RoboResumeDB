@@ -16,6 +16,7 @@ public class EmployeeList {
 
     private String employeeOne;
     private String jobEmployee;
+    private String employeeList;
 
     public long getId() {
         return id;
@@ -41,6 +42,13 @@ public class EmployeeList {
         this.jobEmployee = jobEmployee;
     }
 
+    public String getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(String employeeList) {
+        this.employeeList = employeeList;
+    }
 }
 
 

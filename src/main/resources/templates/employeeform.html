@@ -35,6 +35,8 @@
                                               and skill into the form. List the most recent employment first.  <br></p>
                         <p action="#" th:action="@{name}" th:object="${firstName}" method="post" >
 
+                        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="well alert alert-danger" role="alert">You must enter your first name!</div>
+                        <div th:if="${#fields.hasErrors('education')}" th:errors="*{education}" class="well alert alert-danger" role="alert">You must enter a school name!</div>
                             <h2 class="intro-body">First Name:</h2><input type="text" th:field="*{firstName}" /><br>
 
                             <h2 class="intro-body">Last Name:</h2><input type="text" th:field="*{lastName}" /><br>
@@ -51,8 +53,21 @@
 
                                 <p class="intro-body">Title:</p><input type="text" th:field="*{experience.year}" /><br>
                                 <p class="intro-body">Dates :</p><input type="text" th:field="*{experience.school}" /><br>
-                                <p class="intro-body">Duty 1:</p><input type="text" th:field="*{experience.degree}" /><br>
-                                <p class="intro-body">Duty 2:</p><input type="text" th:field="*{experience.degree}" /><br>
+                                <p class="intro-body">Duty 1:</p><input type="text" th:field="*{experience.duty}" /><br>
+                                <p class="intro-body">Duty 2:</p><input type="text" th:field="*{experience.duty2}" /><br>
+
+                                <p class="intro-body">Title:</p><input type="text" th:field="*{experience.year}" /><br>
+                                <p class="intro-body">Dates :</p><input type="text" th:field="*{experience.school}" /><br>
+                                <p class="intro-body">Duty 1:</p><input type="text" th:field="*{experience.duty}" /><br>
+                                <p class="intro-body">Duty 2:</p><input type="text" th:field="*{experience.duty2}" /><br>
+
+
+                                <p class="intro-body">Title:</p><input type="text" th:field="*{experience.year}" /><br>
+                                <p class="intro-body">Dates :</p><input type="text" th:field="*{experience.school}" /><br>
+                                <p class="intro-body">Duty 1:</p><input type="text" th:field="*{experience.duty}" /><br>
+                                <p class="intro-body">Duty 2:</p><input type="text" th:field="*{experience.duty2}" /><br>
+
+
 
 
                         <h2 class="intro-body">Skill:</h2> <input type="text" th:field="*{skill}" /><br>
@@ -65,8 +80,12 @@
                                 <p class="intro-body">Rating:</p><input type="text" th:field="*{skill.rating}" /><br>
                         </form>
 
-                        <div th:if="${employeeconfirm}==true" th:text="'Success, your resume has been added '" class=" well alert alert-success col-xs-4 col-xs-offset-4></div>
-                        <div th:if="${#fields.hasErrors {('firstName')}" th:text="#{firstName}"  role="alert"></div>
+
+                        <div class = "container">
+                                <a href="#employeeconfirm" class="btn btn-circle page-scroll">
+                                <i class="fa fa-angle-double-down animated"></i>
+                                </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,8 +93,7 @@
     </header>
 
 
-        <a href="#employeeconfirm" class="btn btn-circle page-scroll">
-            <i class="fa fa-angle-double-down animated"></i>
+
 
 </head>
 <body>
