@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Employee Confirmation List</title>
@@ -25,6 +25,36 @@
 
 </head>
 <body>
+
+<h1 class="intro-text"> Congratulations!</h1><br>
+
+    <h3 class="intro-body">Your resume was received! Here's what you submitted.</h3><br>
+
+
+
+    <!-- Table headers -->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Education</th>
+            <th>Work</th>
+            <th>Skill</th>
+        </tr>
+        <tr>
+            <td><b><p th:text="#{firstName}">First name</p></b></td>
+            <td><b><p th:text="#{lastName}">Last name</p></b></td>
+            <td><b><p th:text="#{email}">Email</p></b></td>
+            <td><b><p th:text="#{education}">Education</p></b></td>
+            <td><b><p th:text="#{experience}">Work</p></b></td>
+            <td><b><p th:text="#{skill}">Skill</p></b></td>
+
+    </table>
+
+
+
+
+        <a href="/index" class="btn btn-dark btn-lg">Go Back</a>
 
 </body>
 </html>
