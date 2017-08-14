@@ -8,6 +8,12 @@ import javax.validation.constraints.Size;
 public class JobEmployment {
 
     @NotNull
+    @Size(min = 3, max = 50)
+    private String firstName;
+    @NotNull
+    @Size(min = 3, max = 50)
+    private String lastName;
+    @NotNull
     @Size(min=3,max=50)
     private String education;
     @NotNull
@@ -16,6 +22,7 @@ public class JobEmployment {
     @NotNull
     @Size(min=3,max=50)
     private String skill;
+
 
     public String getEducation() {
         return education;
@@ -40,4 +47,21 @@ public class JobEmployment {
     public void setSkill(String skill) {
         this.skill = skill;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
 }

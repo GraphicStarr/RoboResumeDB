@@ -12,4 +12,5 @@ public interface PersonRepo extends CrudRepository <Person, Long>{
     List<EmployeeList> findEmployeeOneContaining(String s);
 
 
+    List<Person> findPersonContaining(String searchEmployee);
 }

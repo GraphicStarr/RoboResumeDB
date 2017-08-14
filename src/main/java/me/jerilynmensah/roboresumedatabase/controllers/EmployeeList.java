@@ -1,8 +1,6 @@
-package me.jerilynmensah.roboresumedatabase.models;
+package me.jerilynmensah.roboresumedatabase.controllers;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,17 +9,13 @@ import javax.validation.constraints.Size;
 public class EmployeeList {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @NotNull
     @Size(min=3, max=50)
+
     private String employeeOne;
-    @NotNull
-    @Size(min=3, max=50)
     private String jobEmployee;
-    @NotNull
-    @Size(min=3, max=50)
     private String employeeList;
 
     public long getId() {
@@ -54,13 +48,6 @@ public class EmployeeList {
 
     public void setEmployeeList(String employeeList) {
         this.employeeList = employeeList;
-    }
-
-
-    public String getFirstName() {
-    }
-
-    public String getLastName() {
     }
 }
 
